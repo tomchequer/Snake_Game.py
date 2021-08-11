@@ -44,7 +44,7 @@ while gameison:
         snake.extend()
         
     #detecting when hitting the wall!
-    if snake.head.xcor() > 300 or snake.head.xcor() < -305 or snake.head.ycor() > 300 or snake.head.ycor() < -300:
+    if snake.head.xcor() > 290 or snake.head.xcor() < -290 or snake.head.ycor() > 290 or snake.head.ycor() < -290:
         gameison = False
         scoreboard.gameover()
         print('Game is over.')
