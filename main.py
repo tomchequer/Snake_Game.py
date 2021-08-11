@@ -51,10 +51,10 @@ while gameison:
 
     #detect colision with tail!
     for i in snake.squares[1:]:    
-        if snake.head.distance(i) < 10:
+        if snake.head.distance(i) < 15:
             gameison = False
             scoreboard.gameover()
 
 screen.exitonclick()
 
-
+    
