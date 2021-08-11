@@ -35,9 +35,17 @@ while gameison:
     screen.update()
     time.sleep(0.1)
     snake.move()
+    #detecting when food is eaten!!
     if snake.head.distance(food) < 15:
         print('yummy')
         food.refresh()
+        scoreboard.increase_score()
+    #dectecing when hitting the wall!
+    if snake.head.xcor() > 280 or snake.head.xcor() < -280 or snake.head.ycor() > 280 or snake.head.ycor() < -280:
+        gameison = False
+        scoreboard.gameover()
+        print('Game is over.')
+
 screen.exitonclick()
 
 
