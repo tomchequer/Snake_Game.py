@@ -31,6 +31,7 @@ scoreboard = Score()
 
 gameison = True
 
+
 while gameison:
     screen.update()
     time.sleep(0.1)
@@ -40,11 +41,21 @@ while gameison:
         print('yummy')
         food.refresh()
         scoreboard.increase_score()
-    #dectecing when hitting the wall!
-    if snake.head.xcor() > 280 or snake.head.xcor() < -280 or snake.head.ycor() > 280 or snake.head.ycor() < -280:
+        snake.extend()
+        
+    #detecting when hitting the wall!
+    if snake.head.xcor() > 300 or snake.head.xcor() < -300 or snake.head.ycor() > 300 or snake.head.ycor() < -300:
         gameison = False
         scoreboard.gameover()
         print('Game is over.')
+
+    #detect colision with tail!
+    for i in snake.squares:
+        if i == snake.head:
+            pass
+        elif snake.head.distance(i) < 10:
+            gameison = False
+            scoreboard.gameover()
 
 screen.exitonclick()
 

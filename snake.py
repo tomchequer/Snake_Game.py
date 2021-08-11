@@ -11,8 +11,6 @@ DOWN = 270
 RIGHT = 0
 LEFT = 180
 
-
-
 class Snake():
     def __init__(self):
         self.squares = []  
@@ -22,11 +20,8 @@ class Snake():
 
     def create_snake(self):
         for i in STARTING_AXIS:
-            new_square = Turtle('square')
-            new_square.color('white')
-            new_square.penup()
-            new_square.goto(i)
-            self.squares.append(new_square)
+            self.add_square(i)
+
     
     def move(self):
         for i in range(len(self.squares) - 1, 0, -1):
@@ -50,5 +45,14 @@ class Snake():
     def right(self):
         if self.head.heading() != LEFT:
             self.head.setheading(RIGHT)
-
-
+    
+    def extend(self):
+        #add a new square to the snake
+        self.add_square(self.squares[-1].position())
+    
+    def add_square (self, i):
+        new_square = Turtle('square')
+        new_square.color('white')
+        new_square.penup()
+        new_square.goto(i)
+        self.squares.append(new_square)
