@@ -52,9 +52,12 @@ while gameison:
     #detect colision with tail!
     for i in snake.squares[1:]:    
         if snake.head.distance(i) < 15:
-            
             scoreboard.reset()
             snake.reset()
+    
+    scoreboard.save_highscore()
+    
 screen.exitonclick()
+
 
     
