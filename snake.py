@@ -56,3 +56,10 @@ class Snake():
         new_square.penup()
         new_square.goto(i)
         self.squares.append(new_square)
+        
+    def reset(self):
+        for i in self.squares:
+            i.goto(1000,1000)
+        self.squares.clear()
+        self.create_snake()
+        self.head = self.squares[0]
